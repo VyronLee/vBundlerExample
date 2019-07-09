@@ -19,7 +19,7 @@ namespace Example.Components
     {
         private const float kChangeInterval = 1f;
 
-        private readonly List<string> materials = new List<string>
+        private static readonly List<string> materials = new List<string>
         {
             "Assets/Resources/Materials/Orange_1.mat",
             "Assets/Resources/Materials/Orange_2.mat",

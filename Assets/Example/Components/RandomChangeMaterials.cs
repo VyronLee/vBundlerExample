@@ -17,7 +17,7 @@ namespace Example.Components
     {
         private const float kChangeInterval = 1f;
         private MeshRenderer _render;
-        public List<Material> materials = new List<Material>();
+        public List<Material> materials;
 
         private void Start()
         {
