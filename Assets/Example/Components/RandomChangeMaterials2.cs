@@ -1,11 +1,19 @@
-﻿using System.Collections;
+﻿//------------------------------------------------------------
+//        File:  RandomChangeMaterials2.cs
+//       Brief:  RandomChangeMaterials2
+//
+//      Author:  VyronLee, lwz_jz@hotmail.com
+//
+//    Modified:  2019-07-09 14:46
+//   Copyright:  Copyright (c) 2019, VyronLee
+//============================================================
+using System.Collections;
 using System.Collections.Generic;
-using Example;
 using UnityEngine;
 using vBundler.Extension;
 using vBundler.Interface;
 
-namespace Sample.Scripts.Components
+namespace Example.Components
 {
     public class RandomChangeMaterials2 : MonoBehaviour
     {
@@ -36,7 +44,7 @@ namespace Sample.Scripts.Components
                 yield return new WaitForSeconds(kChangeInterval);
 
                 var rand = Random.Range(0, materials.Count);
-                var request = BundlerFacade.Instance.LoadAsync(materials[rand]);
+                var request = BundlerFacade.Instance.Bundler.LoadAssetAsync(materials[rand]);
                 yield return request;
                 var asset = request.GetAsset(typeof(Material));
                 _render.SetMaterial(asset);

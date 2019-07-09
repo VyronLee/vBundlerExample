@@ -1,8 +1,16 @@
-﻿using System.IO;
+﻿//------------------------------------------------------------
+//        File:  BundlerFacade.cs
+//       Brief:  BundlerFacade
+//
+//      Author:  VyronLee, lwz_jz@hotmail.com
+//
+//    Modified:  2019-07-09 14:48
+//   Copyright:  Copyright (c) 2019, VyronLee
+//============================================================
+using System.IO;
 using UnityEngine;
 using vBundler;
 using vBundler.Interface;
-using vBundler.Utils;
 
 namespace Example
 {
@@ -33,24 +41,14 @@ namespace Example
             _vBundler.AddSearchPath(searchPath);
         }
 
-        public IAsset Load<T>(string path) where T : Object
+        public IBundler Bundler
         {
-            return _vBundler.LoadAsset(path).GetAsset(typeof(T));
-        }
-
-        public ILoadRequestAsync LoadAsync(string path)
-        {
-            return _vBundler.LoadAssetAsync(path);
-        }
-
-        public void SetLogLevel(int level)
-        {
-            _vBundler.SetLogLevel(level);
+            get { return _vBundler; }
         }
 
         private void Update()
         {
-            _vBundler.GarbageCollect();
+            _vBundler.Collect();
         }
     }
 }

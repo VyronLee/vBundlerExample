@@ -460,7 +460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a747b60fbf25971478894337a490e5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manifest: {fileID: 4900000, guid: 447089e358b244a978f8844d13e1cc7b, type: 3}
 --- !u!4 &653956869
 Transform:
   m_ObjectHideFlags: 0

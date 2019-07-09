@@ -1,8 +1,17 @@
-﻿using System.Collections;
+﻿//------------------------------------------------------------
+//        File:  RandomChangeMaterials.cs
+//       Brief:  RandomChangeMaterials
+//
+//      Author:  VyronLee, lwz_jz@hotmail.com
+//
+//    Modified:  2019-07-09 14:46
+//   Copyright:  Copyright (c) 2019, VyronLee
+//============================================================
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Sample.Scripts.Components
+namespace Example.Components
 {
     public class RandomChangeMaterials : MonoBehaviour
     {

@@ -1,10 +1,17 @@
-﻿using System.Collections;
+﻿//------------------------------------------------------------
+//        File:  MixLoadSyncAndAsyncSample.cs
+//       Brief:  MixLoadSyncAndAsyncSample
+//
+//      Author:  VyronLee, lwz_jz@hotmail.com
+//
+//    Modified:  2019-07-09 14:47
+//   Copyright:  Copyright (c) 2019, VyronLee
+//============================================================
+using System.Collections;
 using System.Collections.Generic;
-using Example;
 using UnityEngine;
-using vBundler.Interface;
 
-namespace Sample.Scripts.Scenes
+namespace Example.Samples
 {
     public class MixLoadSyncAndAsyncSample : MonoBehaviour
     {
@@ -48,8 +55,8 @@ namespace Sample.Scripts.Scenes
         private IEnumerator CreateBall()
         {
             var randIdx = Random.Range(0, prefabs.Count);
-            var asset = BundlerFacade.Instance.Load<GameObject>(prefabs[randIdx]);
-            var ball = asset.Instantiate();
+            var asset = BundlerFacade.Instance.Bundler.LoadAsset(prefabs[randIdx]).GetAsset<GameObject>();
+            var ball = asset.InstantiateGameObject();
             ball.transform.position += (Vector3.up + Vector3.back) * 2;
 
             if (balls.Count > kMaxBalls)
@@ -66,10 +73,10 @@ namespace Sample.Scripts.Scenes
         private IEnumerator CreateBallAsync()
         {
             var randIdx = Random.Range(0, prefabs.Count);
-            var request = BundlerFacade.Instance.LoadAsync(prefabs[randIdx]);
+            var request = BundlerFacade.Instance.Bundler.LoadAssetAsync(prefabs[randIdx]);
             yield return request;
             var asset = request.GetAsset(typeof(GameObject));
-            var ball = asset.Instantiate();
+            var ball = asset.InstantiateGameObject();
             ball.transform.position += (Vector3.up + Vector3.back) * 2;
 
             if (balls.Count > kMaxBalls)

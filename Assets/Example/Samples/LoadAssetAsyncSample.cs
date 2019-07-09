@@ -1,11 +1,19 @@
-﻿using System.Collections;
+﻿//------------------------------------------------------------
+//        File:  LoadAssetAsyncSample.cs
+//       Brief:  LoadAssetAsyncSample
+//
+//      Author:  VyronLee, lwz_jz@hotmail.com
+//
+//    Modified:  2019-07-09 14:46
+//   Copyright:  Copyright (c) 2019, VyronLee
+//============================================================
+using System.Collections;
 using System.Collections.Generic;
-using Example;
 using UnityEngine;
 
-namespace Sample.Scripts.Scenes
+namespace Example.Scenes
 {
-    public class LoadSyncSample : MonoBehaviour
+    public class LoadAssetAsyncSample : MonoBehaviour
     {
         private const int kMaxBalls = 200;
         private const float kCreateBallsInterval = 0.3f;
@@ -22,23 +30,24 @@ namespace Sample.Scripts.Scenes
 
         private void Start()
         {
-            StartCoroutine(CreateBallsSync());
+            StartCoroutine(CreateBallsAsync());
         }
 
-        private IEnumerator CreateBallsSync()
+        private IEnumerator CreateBallsAsync()
         {
             while (true)
             {
-                yield return CreateBall();
+                yield return CreateBallAsync();
                 yield return new WaitForSeconds(kCreateBallsInterval);
             }
         }
 
-        private IEnumerator CreateBall()
+        private IEnumerator CreateBallAsync()
         {
             var randIdx = Random.Range(0, prefabs.Count);
-            var asset = BundlerFacade.Instance.Load<GameObject>(prefabs[randIdx]);
-            var ball = asset.Instantiate();
+            var request = BundlerFacade.Instance.Bundler.LoadAssetAsync(prefabs[randIdx]);
+            yield return request;
+            var ball = request.GetAsset(typeof(GameObject)).InstantiateGameObject();
             ball.transform.position += (Vector3.up + Vector3.back) * 2;
 
             if (balls.Count > kMaxBalls)
@@ -48,8 +57,6 @@ namespace Sample.Scripts.Scenes
             }
 
             balls.Add(ball);
-
-            yield break;
         }
     }
 }
