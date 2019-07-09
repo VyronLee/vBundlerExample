@@ -78,3 +78,5 @@ Assets/Plugins/Editor/JetBrains.meta
 *.mdb
 *.mdb.meta
 *.pdb.meta
+StreamingAssets
+StreamingAssets.meta

@@ -28,7 +28,7 @@ namespace Example.Scenes
                 if (_scene != null)
                     return;
 
-                _scene = BundlerFacade.Instance.Bundler.LoadAsset(kScenePath).GetScene(LoadSceneMode.Additive);
+                _scene = BundlerFacade.Instance.Bundler.Load(kScenePath).GetScene(LoadSceneMode.Additive);
                 _scene.Activate();
                 return;
             }

@@ -25,7 +25,7 @@ namespace Example.Samples
             Debug.Log("=====================================");
             Debug.Log("Load GameObject: " + PrefabName);
             Debug.Log("=====================================");
-            var asset = BundlerFacade.Instance.Bundler.LoadAsset(PrefabName).GetAsset<GameObject>();
+            var asset = BundlerFacade.Instance.Bundler.Load(PrefabName).GetAsset<GameObject>();
             var go = asset.InstantiateGameObject();
             yield return new WaitForSeconds(1f);
 
@@ -38,7 +38,7 @@ namespace Example.Samples
             Debug.Log("=====================================");
             Debug.Log("Load Inactive GameObject: " + InactivePrefabName);
             Debug.Log("=====================================");
-            asset = BundlerFacade.Instance.Bundler.LoadAsset(InactivePrefabName).GetAsset<GameObject>();
+            asset = BundlerFacade.Instance.Bundler.Load(InactivePrefabName).GetAsset<GameObject>();
             go = asset.InstantiateGameObject();
             yield return new WaitForSeconds(3f);
 
@@ -56,7 +56,7 @@ namespace Example.Samples
             Debug.Log("=====================================");
             Debug.Log("Load Inactive GameObject Again: " + InactivePrefabName);
             Debug.Log("=====================================");
-            asset = BundlerFacade.Instance.Bundler.LoadAsset(InactivePrefabName).GetAsset<GameObject>();
+            asset = BundlerFacade.Instance.Bundler.Load(InactivePrefabName).GetAsset<GameObject>();
             go = asset.InstantiateGameObject();
             yield return new WaitForSeconds(3f);
 

@@ -45,7 +45,7 @@ namespace Example.Scenes
         private IEnumerator CreateBallAsync()
         {
             var randIdx = Random.Range(0, prefabs.Count);
-            var request = BundlerFacade.Instance.Bundler.LoadAssetAsync(prefabs[randIdx]);
+            var request = BundlerFacade.Instance.Bundler.LoadAsync(prefabs[randIdx]);
             yield return request;
             var ball = request.GetAsset(typeof(GameObject)).InstantiateGameObject();
             ball.transform.position += (Vector3.up + Vector3.back) * 2;

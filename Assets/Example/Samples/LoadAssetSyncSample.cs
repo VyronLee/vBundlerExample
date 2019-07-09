@@ -45,7 +45,7 @@ namespace Example.Scenes
         private IEnumerator CreateBall()
         {
             var randIdx = Random.Range(0, prefabs.Count);
-            var asset = BundlerFacade.Instance.Bundler.LoadAsset(prefabs[randIdx]).GetAsset<GameObject>();
+            var asset = BundlerFacade.Instance.Bundler.Load(prefabs[randIdx]).GetAsset<GameObject>();
             var ball = asset.InstantiateGameObject();
             ball.transform.position += (Vector3.up + Vector3.back) * 2;
 

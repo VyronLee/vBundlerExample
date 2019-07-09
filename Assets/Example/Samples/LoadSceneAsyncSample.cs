@@ -25,7 +25,7 @@ namespace Example.Scenes
             if (null != _scene)
                 yield break;
 
-            var request = BundlerFacade.Instance.Bundler.LoadAssetAsync(kScenePath);
+            var request = BundlerFacade.Instance.Bundler.LoadAsync(kScenePath);
             yield return request;
 
             var scene = request.GetSceneAsync(LoadSceneMode.Additive);

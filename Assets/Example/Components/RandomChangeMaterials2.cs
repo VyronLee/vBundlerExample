@@ -44,7 +44,7 @@ namespace Example.Components
                 yield return new WaitForSeconds(kChangeInterval);
 
                 var rand = Random.Range(0, materials.Count);
-                var request = BundlerFacade.Instance.Bundler.LoadAssetAsync(materials[rand]);
+                var request = BundlerFacade.Instance.Bundler.LoadAsync(materials[rand]);
                 yield return request;
                 var asset = request.GetAsset(typeof(Material));
                 _render.SetMaterial(asset);
