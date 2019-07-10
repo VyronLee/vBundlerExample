@@ -7,13 +7,14 @@
 //    Modified:  2019-07-09 14:46
 //   Copyright:  Copyright (c) 2019, VyronLee
 //============================================================
+
 using System.Collections;
 using UnityEngine;
-using Logger = vBundler.Log.Logger;
+using Logger = vBundler.Logs.Logger;
 
 namespace Example.Samples
 {
-    public class AssetBundleCollectSample : MonoBehaviour
+    public class AssetBundleCollectSample : BundlerSampleBase
     {
         private const string PrefabName = "Assets/Resources/Prefabs/Balls/ColorfulBall2.prefab";
         private const string InactivePrefabName = "Assets/Resources/Prefabs/Balls/InactiveColorfulBall2.prefab";

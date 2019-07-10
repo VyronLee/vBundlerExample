@@ -7,13 +7,14 @@
 //    Modified:  2019-07-09 14:47
 //   Copyright:  Copyright (c) 2019, VyronLee
 //============================================================
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Example.Scenes
+namespace Example.Samples
 {
-    public class LoadAssetSyncSample : MonoBehaviour
+    public class LoadAssetSyncSample : BundlerSampleBase
     {
         private const int kMaxBalls = 200;
         private const float kCreateBallsInterval = 0.3f;

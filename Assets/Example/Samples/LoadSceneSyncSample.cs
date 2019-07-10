@@ -7,23 +7,26 @@
 //    Modified:  2019-07-09 12:58
 //   Copyright:  Copyright (c) 2019, VyronLee
 //============================================================
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using vBundler.Interface;
 
-namespace Example.Scenes
+namespace Example.Samples
 {
-    public class LoadSceneSyncSample : MonoBehaviour
+    public class LoadSceneSyncSample : BundlerSampleBase
     {
         private static readonly string kScenePath = "Assets/Scenes/LoadAssetSyncSample.unity";
 
         private IScene _scene;
 
-        private void OnGUI()
+        protected override void OnGUI()
         {
-            var style = new GUIStyle(GUI.skin.button) {fontSize = 30};
+            base.OnGUI();
 
-            if (GUI.Button(new Rect(100, 100, 200, 80), new GUIContent("Load"), style))
+            var style = new GUIStyle(GUI.skin.button) {fontSize = 32};
+
+            if (GUI.Button(new Rect(0, 120, 300, 100), new GUIContent("Load"), style))
             {
                 if (_scene != null)
                     return;
@@ -33,7 +36,7 @@ namespace Example.Scenes
                 return;
             }
 
-            if (GUI.Button(new Rect(350, 100, 200, 80), new GUIContent("Unload"), style))
+            if (GUI.Button(new Rect(320, 120, 300, 100), new GUIContent("Unload"), style))
             {
                 if (null != _scene)
                     _scene.Unload();
