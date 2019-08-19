@@ -57,7 +57,10 @@ namespace Example.Samples
             Debug.Log("=====================================");
             Debug.Log("Load Inactive GameObject Again: " + InactivePrefabName);
             Debug.Log("=====================================");
-            asset = BundlerFacade.Instance.Bundler.Load(InactivePrefabName).GetAsset<GameObject>();
+            var request = BundlerFacade.Instance.Bundler.LoadAsync(InactivePrefabName);
+            yield return request;
+            asset = request.GetAssetAsync<GameObject>();
+            yield return asset;
             go = asset.InstantiateGameObject();
             yield return new WaitForSeconds(3f);
 

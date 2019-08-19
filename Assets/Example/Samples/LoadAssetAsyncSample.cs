@@ -48,7 +48,9 @@ namespace Example.Samples
             var randIdx = Random.Range(0, prefabs.Count);
             var request = BundlerFacade.Instance.Bundler.LoadAsync(prefabs[randIdx]);
             yield return request;
-            var ball = request.GetAsset(typeof(GameObject)).InstantiateGameObject();
+            var asset = request.GetAssetAsync<GameObject>();
+            yield return asset;
+            var ball = asset.InstantiateGameObject();
             ball.transform.position += (Vector3.up + Vector3.back) * 2;
 
             if (balls.Count > kMaxBalls)
