@@ -10,7 +10,7 @@
 
 using System.Collections;
 using UnityEngine;
-using Logger = vBundler.Logs.Logger;
+using Logger = vFrame.Bundler.Logs.Logger;
 
 namespace Example.Samples
 {

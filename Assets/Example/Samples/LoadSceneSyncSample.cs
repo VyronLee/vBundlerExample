@@ -10,7 +10,7 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using vBundler.Interface;
+using vFrame.Bundler.Interface;
 
 namespace Example.Samples
 {

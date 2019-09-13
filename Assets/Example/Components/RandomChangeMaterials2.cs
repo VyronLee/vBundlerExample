@@ -10,8 +10,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using vBundler.Extension;
-using vBundler.Interface;
+using vFrame.Bundler.Extension;
+using vFrame.Bundler.Interface;
 
 namespace Example.Components
 {

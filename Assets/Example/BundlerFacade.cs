@@ -10,9 +10,9 @@
 
 using System.IO;
 using UnityEngine;
-using vBundler;
-using vBundler.Interface;
-using Logger = vBundler.Logs.Logger;
+using vFrame.Bundler;
+using vFrame.Bundler.Interface;
+using Logger = vFrame.Bundler.Logs.Logger;
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -24,7 +24,7 @@ namespace Example
     public class BundlerFacade : MonoBehaviour
     {
         private static BundlerFacade _instance;
-        private IBundler _vBundler;
+        private IBundler _bundler;
         public bool BundleMode { private set; get; }
 
         public static BundlerFacade Instance
@@ -52,22 +52,22 @@ namespace Example
             var manifest = JsonUtility.FromJson<BundlerManifest>(manifestText);
             var searchPath = Path.Combine(Application.streamingAssetsPath, "Bundles");
 
-            _vBundler = new Bundler(manifest);
-            _vBundler.AddSearchPath(searchPath);
-            _vBundler.SetMode(bundleMode ? BundleModeType.Bundle : BundleModeType.Resource);
-            _vBundler.SetLogLevel(logLevel);
+            _bundler = new Bundler(manifest);
+            _bundler.AddSearchPath(searchPath);
+            _bundler.SetMode(bundleMode ? BundleModeType.Bundle : BundleModeType.Resource);
+            _bundler.SetLogLevel(logLevel);
 
             BundleMode = bundleMode;
         }
 
         public IBundler Bundler
         {
-            get { return _vBundler; }
+            get { return _bundler; }
         }
 
         private void Update()
         {
-            _vBundler.Collect();
+            _bundler.Collect();
         }
     }
 }
